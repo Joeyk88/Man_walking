@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    background-size: cover;
+    height: 50vw;
+  background-image: url(/x51ctnux.png);
+  background-repeat: no-repeat;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.knap {
+    display: flex;
+    align-items: baseline;
+    justify-content: end;
+}
+
+.knap button {
+    margin-top: 30px;
+    margin-left: 900px;
+}
+.logo-knap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+button {
+    background-color: #000000;
+    color: #d0cccc;
+    border-radius: 40px 40px 40px 40px;
+    height: 40px;
+    width: 150px;
+}
+
+button a {
+    text-decoration: none;
+     color: #d0cccc;
+
+}
+svg {
+    height: 30vw;
+    color: #fff;
+}
