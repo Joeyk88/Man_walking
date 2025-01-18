@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Macondo&display=swap');
+
 button {
   background-color: #059335;
   list-style: none;
@@ -13,10 +15,11 @@ button a {
   text-decoration: none;
 }
 h1 {
-  font-size: 50px;
+  font-size: 55px;
   text-align: center;
   color: #059335;
   padding-top: 20px;
+  font-family: "Macondo";
 }
 img {
   width: 800px;
@@ -31,6 +34,8 @@ h3 {
 h2 {
   color: #059335;
   text-align: center;
+  font-family: "Macondo";
+  font-size: 30px;
 }
 p {
   font-size: 15px;
@@ -59,7 +64,7 @@ li {
 
 .arrangementer {
   justify-items: center;
-  height: 1900px;
+  height: 2000px;
   background-color: white;
   width: 900px;
 }

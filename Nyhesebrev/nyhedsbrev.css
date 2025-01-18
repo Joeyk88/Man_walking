@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Macondo&display=swap");
+
+button {
+  background-color: #059335;
+  list-style: none;
+  padding: 10px;
+  width: 90px;
+  border-radius: 30px;
+  border: none;
+  margin-left: 50px;
+}
+button a {
+  color: white;
+  font-size: 15px;
+  text-decoration: none;
+}
+.header {
+  justify-items: center;
+}
+h1 {
+  font-size: 60px;
+  text-align: center;
+  color: #059335;
+  padding-top: 20px;
+  font-family: "Macondo";
+}
+img {
+  width: 400px;
+  justify-items: center;
+}
+h3 {
+  font-size: 20px;
+  width: 700px;
+  justify-items: center;
+}
+h2 {
+  color: #059335;
+  font-size: 30px;
+  text-align: center;
+  font-family: "Macondo";
+}
+.dele {
+  display: flex;
+}
+.brødtext h3 {
+  width: 400px;
+  margin-right: 30px;
+  margin-left: 40px;
+  padding-top: 50px;
+}
+.Artikel1 h2 {
+  margin-bottom: 30px;
+}
+.Artikel2 {
+  justify-items: center;
+}
+.Artikel3 {
+  justify-items: center;
+}
+.Artikel3 button {
+    padding: 20px;
+  width: 400px;
+  justify-items: center;
+}
+.Artikel3 button a{
+  font-size: 20px;
+}
+li {
+  font-size: 20px;
+  color: #059335;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.brødtext2 img {
+  margin-left: 150px;
+}
+.linje {
+  color: #059335;
+  font-size: 110px;
+  text-align: center;
+}
+
+.Nyhedsbrev {
+  justify-items: center;
+  height: 2300px;
+  background-color: white;
+  width: 900px;
+}
+.width {
+  justify-items: center;
+}
+.backgrund {
+  background-image: url(./background4.png);
+  padding: 50px;
+}
