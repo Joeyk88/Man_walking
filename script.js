@@ -51,64 +51,59 @@ const attackImages = [
 
 const backgrounds = [
     'skov/2.png',
-    // 'skov/2.png',
-    // 'skov/2.png',
-    // 'skov/2.png',
-    // 'skov/2.png',
-    // 'skov/2.png'
 ];
 
-let lastScrollPosition = 0; // Track the last scroll position
-let ticking = false; // Prevent multiple scroll events from firing
-let isAttacking = false; // Track if the character is currently attacking
+let lastScrollPosition = 0; // Sporer den sidste scroll-position
+let ticking = false; // Forhindrer flere scroll-events i at blive fyret af
+let isAttacking = false; // Sporer, om karakteren angriber lige nu
 
 window.addEventListener('scroll', function () {
-    lastScrollPosition = window.scrollY; // Update scroll position
+    lastScrollPosition = window.scrollY; // Opdater scroll-position
 
     if (!ticking) {
         window.requestAnimationFrame(function() {
             const road = document.getElementById('road');
             
-            // Move the road background relative to scroll
-            const speedFactor = 1; // Adjust for how fast the road moves
+            // Flyt vejens baggrund i forhold til scroll
+            const speedFactor = 1; // Justér hvor hurtigt vejen bevæger sig
             road.style.backgroundPositionY = `-${lastScrollPosition * speedFactor}px`;
 
-            // Fade out the character before changing the image
+            // Fade karakteren ud, før billedet ændres
             const character = document.getElementById('character');
-            character.style.opacity = 0; // Start fading out
+            character.style.opacity = 0; // Begynd at fade ud
 
-            // Update character image based on scroll positiown
-            const frameIndex = Math.floor(lastScrollPosition / 10) % characterImages.length; // Change frame every 10px
-            character.src = characterImages[frameIndex]; // Update character image
+            // Opdater karakterens billede baseret på scroll-position
+            const frameIndex = Math.floor(lastScrollPosition / 10) % characterImages.length; // Skift frame hver 10px
+            character.src = characterImages[frameIndex]; // Opdater karakterens billede
 
-            // Fade in the character after changing the image
-            character.style.opacity = 1; // Fade back in
+            // Fade karakteren ind igen efter billedet er ændret
+            character.style.opacity = 1; // Fade tilbage ind
 
-            // Update background image based on scroll position
-            const backgroundIndex = Math.floor(lastScrollPosition / 500) % backgrounds.length; // Change background every 500px
-            road.style.backgroundImage = `url('${backgrounds[backgroundIndex]}')`; // Update background image
+            // Opdater baggrundsbilledet baseret på scroll-position
+            const backgroundIndex = Math.floor(lastScrollPosition / 500) % backgrounds.length; // Skift baggrund hver 500px
+            road.style.backgroundImage = `url('${backgrounds[backgroundIndex]}')`; // Opdater baggrundsbilledet
 
-            ticking = false; // Reset ticking
+            ticking = false; // Nulstil ticking
         });
-        ticking = true; // Set ticking to true to prevent further calls
+        ticking = true; // Sæt ticking til true for at forhindre yderligere kald
     }
 });
 
 window.addEventListener('keydown', function(event) {
-    if (event.key === 'w' && !isAttacking) { // Check if 'W' is pressed and not already attacking
-        isAttacking = true; // Set attacking state
-        let attackFrameIndex = 0; // Initialize attack frame index
+    if (event.key === 'e' && !isAttacking) { // Tjek om 'E' er trykket, og om der ikke allerede angribes
+        isAttacking = true; // Sæt angribende tilstand
+        let attackFrameIndex = 0; // Initialiser angrebsframe-indekset
 
         const character = document.getElementById('character');
         const attackInterval = setInterval(() => {
             if (attackFrameIndex < attackImages.length) {
-                character.src = attackImages[attackFrameIndex]; // Update character image to attack frame
-                attackFrameIndex++; // Move to the next frame
+                character.src = attackImages[attackFrameIndex]; // Opdater karakterens billede til angrebsframe
+                attackFrameIndex++; // Gå til næste frame
             } else {
-                clearInterval(attackInterval); // Stop the attack animation
-                isAttacking = false; // Reset attacking state
-                character.src = characterImages[Math.floor(lastScrollPosition / 10) % characterImages.length]; // Reset to walking image
+                clearInterval(attackInterval); // Stop angrebsanimationen
+                isAttacking = false; // Nulstil angribende tilstand
+                character.src = characterImages[Math.floor(lastScrollPosition / 10) % characterImages.length]; // Gendan gå-billede
             }
-        }, 10); // Adjust the interval for frame rate of attack animation
+        }, 10); // Justér intervallet for billedhastigheden af angrebsanimationen
     }
 });
