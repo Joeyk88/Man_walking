@@ -49,9 +49,7 @@ const attackImages = [
     'Attacking/0_Warrior_Attack_2_014.png',
 ];
 
-const backgrounds = [
-    'skov/2.png',
-];
+const backgroundImage = 'skov/2.png'; // Single background image
 
 let lastScrollPosition = 0; // Sporer den sidste scroll-position
 let ticking = false; // Forhindrer flere scroll-events i at blive fyret af
@@ -68,20 +66,13 @@ window.addEventListener('scroll', function () {
             const speedFactor = 1; // Justér hvor hurtigt vejen bevæger sig
             road.style.backgroundPositionY = `-${lastScrollPosition * speedFactor}px`;
 
-            // Fade karakteren ud, før billedet ændres
-            const character = document.getElementById('character');
-            character.style.opacity = 0; // Begynd at fade ud
-
             // Opdater karakterens billede baseret på scroll-position
             const frameIndex = Math.floor(lastScrollPosition / 10) % characterImages.length; // Skift frame hver 10px
+            const character = document.getElementById('character');
             character.src = characterImages[frameIndex]; // Opdater karakterens billede
 
-            // Fade karakteren ind igen efter billedet er ændret
-            character.style.opacity = 1; // Fade tilbage ind
-
-            // Opdater baggrundsbilledet baseret på scroll-position
-            const backgroundIndex = Math.floor(lastScrollPosition / 500) % backgrounds.length; // Skift baggrund hver 500px
-            road.style.backgroundImage = `url('${backgrounds[backgroundIndex]}')`; // Opdater baggrundsbilledet
+            // Opdater baggrundsbilledet til den eneste baggrund
+            road.style.backgroundImage = `url('${backgroundImage}')`; // Opdater baggrundsbilledet
 
             ticking = false; // Nulstil ticking
         });
