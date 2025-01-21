@@ -71,3 +71,24 @@ body {
     color: black;
     transform: scale(1.1);
 }
+
+.trold {
+    position: absolute;
+    height: 200px;
+    top: 245%;
+    right: 40%;
+}
+
+.elver {
+    position: absolute;
+    height: 250px;
+    top: 70%;
+    right: 50%;
+}
+
+.købmand {
+    position: absolute;
+    height: 150px;
+    top: 160%;
+    right: 55%;
+}
