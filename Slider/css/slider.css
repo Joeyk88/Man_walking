@@ -245,3 +245,59 @@ a {
   max-width: 100%;
   height: auto;
 }
+
+@media (max-width: 500px){
+   .slider-wrapper .slides .single-slide{
+    object-fit: cover;
+    position: relative;
+    display: none; /* Slides er som udgangspunkt display:none - Kun når de får class'en 'active', bliver de vist */
+    user-select: none;
+    height: 70vh;
+    width: 100%;
+    padding: 20px;
+     animation: slideInLeft 2s 1 normal both;
+ /*    animation-name: fade;
+    animation-duration: 1.0s;
+     */
+}
+
+.slider-buttons {
+
+    padding-top: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrap-container {
+       background-color: #379556;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    align-items: center;
+}
+
+.wrap {
+display: none;
+}
+
+
+   .container {
+display: none;
+      }
+
+      .parent {
+        margin-top: -200px;
+        height: 95vw;
+  max-width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  align-items: center;
+  justify-content: center;
+}  
+
+}
