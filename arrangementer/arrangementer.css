@@ -95,15 +95,17 @@ li {
   h3{
     font-size: 15px;
     width: 300px;
+     margin-left: 40px;
   }
   img {
-  width: 400px;
+  width: 450px;
 
   justify-items: center;
 }
 
+
   .arrangementer {
-    width: 400px;
+    width: 450px;
   }
   li {
   font-size: 15px;
