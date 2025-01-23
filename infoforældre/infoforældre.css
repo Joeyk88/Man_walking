@@ -15,17 +15,6 @@ button a {
   text-decoration: none;
 }
 
-.downloade button {
-  padding: 20px;
-  width: 400px;
-}
-.downloade button a {
-  font-size: 20px;
-}
-.downloade {
-  margin-top: 70px;
-}
-
 h1 {
   font-size: 60px;
   text-align: center;
@@ -84,4 +73,33 @@ p {
   background-image: url(./background2.png);
   background-position:center;
   padding: 50px;
+}
+
+@media (max-width: 500px){
+  h1 {
+  font-size: 40px;
+  padding-top: 30px;
+}
+h2 {
+  font-size: 20px;
+}
+button {
+  margin-left: 20px;
+}
+h3{
+    font-size: 15px;
+  width: 300px;
+}
+
+.medlemlink button {
+  padding: 15px;
+  width: 300px;
+}
+.medlemlink button a {
+  font-size: 15px;
+}
+
+.infoforældre {
+width: 400px;
+}
 }

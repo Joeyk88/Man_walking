@@ -49,7 +49,7 @@ const attackImages = [
     'Attacking/0_Warrior_Attack_2_014.png',
 ];
 
-const backgroundImage = 'skov/2.png'; // Single background image
+const backgroundImage = 'skov/2.jpg'; // Single background image
 
 let lastScrollPosition = 0; // Sporer den sidste scroll-position
 let ticking = false; // Forhindrer flere scroll-events i at blive fyret af

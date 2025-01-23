@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Macondo&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Macondo&display=swap");
 
 button {
   background-color: #059335;
@@ -68,5 +68,34 @@ p {
 .backgrund {
   background-image: url(./background3.jpeg);
   background-position: bottom;
-   padding: 37px;
+  padding: 37px;
+}
+
+@media (max-width: 500px){
+  h1 {
+  font-size: 40px;
+  padding-top: 30px;
+}
+h2 {
+  font-size: 20px;
+}
+button {
+  margin-left: 20px;
+}
+h3{
+    font-size: 15px;
+  width: 300px;
+}
+
+.downloade  button {
+  padding: 15px;
+  width: 300px;
+}
+.downloade button a {
+  font-size: 15px;
+}
+
+.BlivMedlem {
+width: 400px;
+}
 }
