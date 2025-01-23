@@ -246,6 +246,15 @@ a {
   height: auto;
 }
 
+.back {
+width: 200px;
+}
+
+.button {
+display: grid;
+place-content: center;
+height: 200px;
+}
 @media (max-width: 500px){
    .slider-wrapper .slides .single-slide{
     object-fit: cover;
