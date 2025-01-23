@@ -8,13 +8,16 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #333;
     color: white;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     padding: 10px 0;
     text-align: center;
     transition: transform 0.3s ease;
+       background-size: cover;
+    height: 40vw;
+  background-image: url(/header/header.png);
+  background-repeat: no-repeat;
    
 }
 
