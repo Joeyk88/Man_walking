@@ -50,41 +50,41 @@ const attackImages = [
     'Attacking/0_Warrior_Attack_2_014.png',
 ];
 
-const backgroundImage = 'skov/2.jpg'; // Single background image
+const backgroundImage = 'skov/2.jpg'; 
 
-let lastScrollPosition = 0; // Sporer den sidste scroll-position
-let ticking = false; // Forhindrer flere scroll-events i at blive fyret af
-let isAttacking = false; // Sporer, om karakteren angriber lige nu
+let lastScrollPosition = 0; 
+let ticking = false; 
+let isAttacking = false; 
 
 window.addEventListener('scroll', function () {
-    lastScrollPosition = window.scrollY; // Opdater scroll-position
+    lastScrollPosition = window.scrollY; 
 
     if (!ticking) {
         window.requestAnimationFrame(function() {
             const road = document.getElementById('road');
             
-            // Flyt vejens baggrund i forhold til scroll
-            const speedFactor = 1; // Justér hvor hurtigt vejen bevæger sig
+            
+            const speedFactor = 1; 
             road.style.backgroundPositionY = `-${lastScrollPosition * speedFactor}px`;
 
-            // Opdater karakterens billede baseret på scroll-position
+            
             const frameIndex = Math.floor(lastScrollPosition / 10) % characterImages.length; // Skift frame hver 10px
             const character = document.getElementById('character');
-            character.src = characterImages[frameIndex]; // Opdater karakterens billede
+            character.src = characterImages[frameIndex];
 
-            // Opdater baggrundsbilledet til den eneste baggrund
-            road.style.backgroundImage = `url('${backgroundImage}')`; // Opdater baggrundsbilledet
+            
+            road.style.backgroundImage = `url('${backgroundImage}')`; 
 
-            ticking = false; // Nulstil ticking
+            ticking = false; 
         });
-        ticking = true; // Sæt ticking til true for at forhindre yderligere kald
+        ticking = true; 
     }
 });
 
 window.addEventListener('keydown', function(event) {
-    if (event.key === 'e' && !isAttacking) { // Tjek om 'E' er trykket, og om der ikke allerede angribes
-        isAttacking = true; // Sæt angribende tilstand
-        let attackFrameIndex = 0; // Initialiser angrebsframe-indekset
+    if (event.key === 'e' && !isAttacking) { 
+        isAttacking = true; 
+        let attackFrameIndex = 0; 
 
         const character = document.getElementById('character');
         const attackInterval = setInterval(() => {
@@ -93,7 +93,7 @@ window.addEventListener('keydown', function(event) {
                 attackFrameIndex++; 
             } else {
                 clearInterval(attackInterval); 
-                isAttacking = false; // Nulstil angribende tilstand
+                isAttacking = false; 
                 character.src = characterImages[Math.floor(lastScrollPosition / 10) % characterImages.length]; // Gendan gå-billede
             }
         }, 10);

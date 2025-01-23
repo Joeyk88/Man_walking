@@ -28,11 +28,8 @@ body {
 
 #road-link {
     position: absolute;
-    /* Gør linket fast, så det forbliver på samme sted */
     top: 40%;
-    /* Justér denne værdi for at placere linket vertikalt */
     left: 10%;
-    /* Justér denne værdi for at placere linket horisontalt */
     color: white;
     text-decoration: none;
     font-size: 1.5rem;
@@ -41,7 +38,7 @@ body {
     border-radius: 5px;
     transition: background-color 0.3s ease, transform 0.3s ease;
     z-index: 100;
-    /* Sørger for, at linket vises øverst */
+    
 }
 
 #road-link:hover {
@@ -52,9 +49,7 @@ body {
 #slider-link {
     position: absolute;
     top: 40%;
-    /* Justér denne værdi for at placere linket vertikalt */
     right: 30%;
-    /* Justér denne værdi for at placere linket horisontalt */
     color: white;
     text-decoration: none;
     font-size: 1.5rem;
