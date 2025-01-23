@@ -1,3 +1,57 @@
+
+
+header {
+    position: absolute;
+    background-size: cover;
+    height: 100vw;
+    background-image: url(/x51ctnux.png);
+    
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.knap {
+    display: flex;
+    align-items: baseline;
+    justify-content: end;
+}
+
+.knap button {
+    margin-top: 30px;
+    margin-left: 900px;
+}
+
+.logo-knap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+button {
+    background-color: #000000;
+    color: #d0cccc;
+    border-radius: 40px 40px 40px 40px;
+    height: 40px;
+    width: 150px;
+}
+
+button a {
+    text-decoration: none;
+    color: #d0cccc;
+
+}
+
+svg {
+    height: 30vw;
+    color: #fff;
+}
 body {
     margin: 0;
     padding: 0;
@@ -16,6 +70,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     scale: 150%;
+    
 }
 
 #character {
@@ -38,7 +93,14 @@ body {
     border-radius: 5px;
     transition: background-color 0.3s ease, transform 0.3s ease;
     z-index: 100;
+<<<<<<< Updated upstream
     
+=======
+    display: inline-block;
+    
+    
+    /* Sørger for, at linket vises øverst */
+>>>>>>> Stashed changes
 }
 
 #road-link:hover {
@@ -57,7 +119,8 @@ body {
     padding: 10px 20px;
     border-radius: 5px;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    z-index: 100;
+    z-index: 99;
+    display: inline-block;
     
 }
 
@@ -66,6 +129,7 @@ body {
     color: black;
     transform: scale(1.1);
 }
+<<<<<<< Updated upstream
 #medlem-link{
        position: absolute;
          left: 30%;
@@ -141,3 +205,5 @@ body {
     top: 160%;
     right: 55%;
 }
+=======
+>>>>>>> Stashed changes

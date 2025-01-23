@@ -100,6 +100,7 @@ window.addEventListener('keydown', function(event) {
     }
 });
 
+<<<<<<< Updated upstream
 fetch('header/header.html')
     .then(response => response.text())
     .then(data => {
@@ -120,3 +121,5 @@ fetch('header/header.html')
     .catch(error => console.error('Error loading header:', error));
 
 });
+=======
+>>>>>>> Stashed changes
