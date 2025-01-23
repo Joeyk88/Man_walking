@@ -1,4 +1,4 @@
- document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const characterImages = [
     'knight/0_Warrior_Walk_000.png',
     'knight/0_Warrior_Walk_001.png',
@@ -57,27 +57,27 @@ let ticking = false;
 let isAttacking = false; 
 
 window.addEventListener('scroll', function () {
-    lastScrollPosition = window.scrollY; 
+    lastScrollPosition = window.scrollY; // Opdater scroll-position
 
     if (!ticking) {
         window.requestAnimationFrame(function() {
             const road = document.getElementById('road');
             
-            
-            const speedFactor = 1; 
+            // Flyt vejens baggrund i forhold til scroll
+            const speedFactor = 1; // Justér hvor hurtigt vejen bevæger sig
             road.style.backgroundPositionY = `-${lastScrollPosition * speedFactor}px`;
 
-            
+            // Opdater karakterens billede baseret på scroll-position
             const frameIndex = Math.floor(lastScrollPosition / 10) % characterImages.length; // Skift frame hver 10px
             const character = document.getElementById('character');
-            character.src = characterImages[frameIndex];
+            character.src = characterImages[frameIndex]; // Opdater karakterens billede
 
-            
-            road.style.backgroundImage = `url('${backgroundImage}')`; 
+            // Opdater baggrundsbilledet til den eneste baggrund
+            road.style.backgroundImage = `url('${backgroundImage}')`; // Opdater baggrundsbilledet
 
-            ticking = false; 
+            ticking = false; // Nulstil ticking
         });
-        ticking = true; 
+        ticking = true; // Sæt ticking til true for at forhindre yderligere kald
     }
 });
 
@@ -99,25 +99,24 @@ window.addEventListener('keydown', function(event) {
         }, 10);
     }
 });
+
 fetch('header/header.html')
     .then(response => response.text())
     .then(data => {
         document.body.insertAdjacentHTML('afterbegin', data);
 
-        
         const header = document.getElementById('main-header');
         const eventButton = document.getElementById('event-button');
 
         if (eventButton) {
             eventButton.addEventListener('click', () => {
-                header.classList.add('hidden');
+                header.classList.add('hidden'); // Hide the header
+                startAnimation(); // Start the animation and set the background
             });
         } else {
             console.error('Eventyr-knappen blev ikke fundet i DOM\'en.');
         }
     })
     .catch(error => console.error('Error loading header:', error));
-
-
 
 });
