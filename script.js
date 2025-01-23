@@ -100,7 +100,6 @@ window.addEventListener('keydown', function(event) {
     }
 });
 
-<<<<<<< Updated upstream
 fetch('header/header.html')
     .then(response => response.text())
     .then(data => {
@@ -112,7 +111,7 @@ fetch('header/header.html')
         if (eventButton) {
             eventButton.addEventListener('click', () => {
                 header.classList.add('hidden'); // Hide the header
-                startAnimation(); // Start the animation and set the background
+                 // Start the animation and set the background
             });
         } else {
             console.error('Eventyr-knappen blev ikke fundet i DOM\'en.');
@@ -121,5 +120,4 @@ fetch('header/header.html')
     .catch(error => console.error('Error loading header:', error));
 
 });
-=======
->>>>>>> Stashed changes
+
