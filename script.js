@@ -1,4 +1,5 @@
-const characterImages = [
+ document.addEventListener('DOMContentLoaded', () => {
+    const characterImages = [
     'knight/0_Warrior_Walk_000.png',
     'knight/0_Warrior_Walk_001.png',
     'knight/0_Warrior_Walk_002.png',
@@ -88,13 +89,35 @@ window.addEventListener('keydown', function(event) {
         const character = document.getElementById('character');
         const attackInterval = setInterval(() => {
             if (attackFrameIndex < attackImages.length) {
-                character.src = attackImages[attackFrameIndex]; // Opdater karakterens billede til angrebsframe
-                attackFrameIndex++; // Gå til næste frame
+                character.src = attackImages[attackFrameIndex]; 
+                attackFrameIndex++; 
             } else {
-                clearInterval(attackInterval); // Stop angrebsanimationen
+                clearInterval(attackInterval); 
                 isAttacking = false; // Nulstil angribende tilstand
                 character.src = characterImages[Math.floor(lastScrollPosition / 10) % characterImages.length]; // Gendan gå-billede
             }
-        }, 10); // Justér intervallet for billedhastigheden af angrebsanimationen
+        }, 10);
     }
+});
+fetch('header/header.html')
+    .then(response => response.text())
+    .then(data => {
+        document.body.insertAdjacentHTML('afterbegin', data);
+
+        
+        const header = document.getElementById('main-header');
+        const eventButton = document.getElementById('event-button');
+
+        if (eventButton) {
+            eventButton.addEventListener('click', () => {
+                header.classList.add('hidden');
+            });
+        } else {
+            console.error('Eventyr-knappen blev ikke fundet i DOM\'en.');
+        }
+    })
+    .catch(error => console.error('Error loading header:', error));
+
+
+
 });
