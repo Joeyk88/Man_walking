@@ -50,41 +50,48 @@ const attackImages = [
     'Attacking/0_Warrior_Attack_2_014.png',
 ];
 
-const backgroundImage = 'skov/2.jpg'; 
+const backgroundImage = 'skov/2.jpg'; // Single background image
 
-let lastScrollPosition = 0; 
-let ticking = false; 
-let isAttacking = false; 
+let lastScrollPosition = 0; // Sporer den sidste scroll-position
+let ticking = false; // Forhindrer flere scroll-events i at blive fyret af
+let isAttacking = false; // Sporer, om karakteren angriber lige nu
 
-window.addEventListener('scroll', function () {
-    lastScrollPosition = window.scrollY; // Opdater scroll-position
+function startAnimation() {
+    // Set the background image
+    const road = document.getElementById('road');
+    road.style.backgroundImage = `url('${backgroundImage}')`; // Set the background image
+    road.style.backgroundPositionY = '0'; // Reset background position
 
-    if (!ticking) {
-        window.requestAnimationFrame(function() {
-            const road = document.getElementById('road');
-            
-            // Flyt vejens baggrund i forhold til scroll
-            const speedFactor = 1; // Justér hvor hurtigt vejen bevæger sig
-            road.style.backgroundPositionY = `-${lastScrollPosition * speedFactor}px`;
+    // Update character image based on the current scroll position
+    const character = document.getElementById('character');
+    const frameIndex = Math.floor(lastScrollPosition / 10) % characterImages.length; // Calculate frame index
+    character.src = characterImages[frameIndex]; // Set initial character image
 
-            // Opdater karakterens billede baseret på scroll-position
-            const frameIndex = Math.floor(lastScrollPosition / 10) % characterImages.length; // Skift frame hver 10px
-            const character = document.getElementById('character');
-            character.src = characterImages[frameIndex]; // Opdater karakterens billede
+    // Start the scroll event listener for character animation
+    window.addEventListener('scroll', function () {
+        lastScrollPosition = window.scrollY; // Update scroll position
 
-            // Opdater baggrundsbilledet til den eneste baggrund
-            road.style.backgroundImage = `url('${backgroundImage}')`; // Opdater baggrundsbilledet
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                // Move the road background based on scroll
+                const speedFactor = 1; // Adjust how fast the road moves
+                road.style.backgroundPositionY = `-${lastScrollPosition * speedFactor}px`;
 
-            ticking = false; // Nulstil ticking
-        });
-        ticking = true; // Sæt ticking til true for at forhindre yderligere kald
-    }
-});
+                // Update character image based on scroll position
+                const frameIndex = Math.floor(lastScrollPosition / 10) % characterImages.length; // Change frame every 10px
+                character.src = characterImages[frameIndex]; // Update character image
+
+                ticking = false; // Reset ticking
+            });
+            ticking = true; // Set ticking to true to prevent further calls
+        }
+    });
+}
 
 window.addEventListener('keydown', function(event) {
-    if (event.key === 'e' && !isAttacking) { 
-        isAttacking = true; 
-        let attackFrameIndex = 0; 
+    if (event.key === 'e' && !isAttacking) { // Tjek om 'E' er trykket, og om der ikke allerede angribes
+        isAttacking = true; // Sæt angribende tilstand
+        let attackFrameIndex = 0; // Initialiser angrebsframe-indekset
 
         const character = document.getElementById('character');
         const attackInterval = setInterval(() => {
@@ -93,7 +100,7 @@ window.addEventListener('keydown', function(event) {
                 attackFrameIndex++; 
             } else {
                 clearInterval(attackInterval); 
-                isAttacking = false; 
+                isAttacking = false; // Nulstil angribende tilstand
                 character.src = characterImages[Math.floor(lastScrollPosition / 10) % characterImages.length]; // Gendan gå-billede
             }
         }, 10);
@@ -111,7 +118,7 @@ fetch('header/header.html')
         if (eventButton) {
             eventButton.addEventListener('click', () => {
                 header.classList.add('hidden'); // Hide the header
-                 // Start the animation and set the background
+                startAnimation(); // Start the animation and set the background
             });
         } else {
             console.error('Eventyr-knappen blev ikke fundet i DOM\'en.');
